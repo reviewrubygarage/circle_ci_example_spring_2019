@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'active_record'
+require 'pry'
+require 'aws-sdk-s3'
+require 'dotenv/load'
+require 'activerecord-import'
+
+Dir[Dir.pwd + "/app/**/*.rb"].each { |f| require f }
+
+db_configuration_file = File.join(File.expand_path('..', __FILE__), '..', 'db', 'config.yml')
+db_config = YAML.load(File.read(db_configuration_file))
+ActiveRecord::Base.establish_connection(db_config["development"])
+
+Pry.start
