@@ -6,6 +6,8 @@ require 'pry'
 require 'aws-sdk-s3'
 require 'dotenv/load'
 require 'activerecord-import'
+require 'factory_bot'
+require 'ffaker'
 
 Dir[Dir.pwd + "/app/**/*.rb"].each { |f| require f }
 

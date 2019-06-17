@@ -15,4 +15,10 @@ group :development, :test do
   gem 'dotenv'
   gem 'rspec'
   gem 'pry-byebug'
+  gem 'factory_bot'
+  gem 'ffaker'
+end
+
+group :test do
+  gem 'database_cleaner'
 end

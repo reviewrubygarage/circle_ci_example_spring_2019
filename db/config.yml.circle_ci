@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: 127.0.0.1
+  port: 5432
+  username: ubuntu
+
+development:
+  <<: *default
+  database: circle_example_development
+
+test: &test
+  <<: *default
+  database: circle_example_test
