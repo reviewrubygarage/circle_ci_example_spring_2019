@@ -1,0 +1,10 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: 127.0.0.1
+  username: ubuntu
+
+test: &test
+  <<: *default
+  database: circle_example_test
