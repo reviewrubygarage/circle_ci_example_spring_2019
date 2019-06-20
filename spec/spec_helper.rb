@@ -6,6 +6,13 @@ require 'activerecord-import'
 require 'factory_bot'
 require 'ffaker'
 
+require 'simplecov'
+
+SimpleCov.start do
+  add_filter '/spec/'
+  minimum_coverage 93
+end
+
 Dir[Dir.pwd + "/app/**/*.rb"].each { |f| require f }
 Dir[Dir.pwd + "/spec/support/**/*.rb"].each { |f| require f }
 
@@ -17,6 +24,7 @@ FactoryBot.definition_file_paths = %w{./factories ./test/factories ./spec/factor
 FactoryBot.find_definitions
 
 RSpec.configure do |config|
+  config.include CmxHelpers
   config.include FactoryBot::Syntax::Methods
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
